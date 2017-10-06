@@ -39,7 +39,7 @@ module Danger
                 .and_return(smells)
             end
 
-            it 'returns warning messages' do
+            it 'returns warning reports' do
               expect(dangerfile.status_report[:warnings]).not_to be_empty
             end
           end
@@ -47,7 +47,7 @@ module Danger
           context 'with no code smells' do
             let(:stubbings) { changed_files }
 
-            it 'returns no warning messages' do
+            it 'returns no warning reports' do
               expect(dangerfile.status_report[:warnings]).to be_empty
             end
           end
@@ -58,7 +58,7 @@ module Danger
           let(:modified_files) { [] }
           let(:added_files)    { [] }
 
-          it 'returns no warning messages' do
+          it 'returns no warning reports' do
             expect(dangerfile.status_report[:warnings]).to be_empty
           end
         end
