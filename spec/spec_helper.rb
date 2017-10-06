@@ -3,6 +3,9 @@ ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 $:.unshift((ROOT + 'lib').to_s)
 $:.unshift((ROOT + 'spec').to_s)
 
+require 'simplecov'
+SimpleCov.start
+
 require 'bundler/setup'
 require 'pry'
 
