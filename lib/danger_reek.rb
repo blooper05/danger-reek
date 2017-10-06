@@ -1,1 +1,1 @@
-require "reek/gem_version"
+require 'reek/gem_version'

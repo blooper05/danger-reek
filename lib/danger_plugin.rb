@@ -1,1 +1,1 @@
-require "reek/plugin"
+require 'reek/plugin'
