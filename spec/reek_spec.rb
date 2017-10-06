@@ -33,13 +33,16 @@ module Danger
 
             let(:code_smells) do
               linter = ::Reek::Examiner
-              args   = { message:     double('Message'),
-                         source:      double('Source'),
-                         lines:       [double('Line')] }
-              smells = [double('Code Smells', args)]
+              smells = [double('Code Smells', message: smell_message,
+                                              source:  source,
+                                              lines:   lines)]
               allow_any_instance_of(linter).to receive(:smells)
                 .and_return(smells)
             end
+
+            let(:smell_message) { 'smell message' }
+            let(:source)        { 'path/to/file' }
+            let(:lines)         { [123] }
 
             it 'returns warning reports' do
               expect(warning_reports).not_to be_empty
