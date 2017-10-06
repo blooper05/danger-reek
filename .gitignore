@@ -237,3 +237,4 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/ruby,sublimetext,vim,visualstudiocode,jetbrains,linux,osx,windows
 Gemfile.lock
 .ruby-version
+.ruby-gemset
