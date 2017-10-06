@@ -6,34 +6,39 @@ module Danger
       expect(Danger::DangerReek.new(nil)).to be_a Danger::Plugin
     end
 
-    #
-    # You should test your custom attributes and methods here
-    #
     describe 'with Dangerfile' do
-      before do
-        @dangerfile = testing_dangerfile
-        @my_plugin = @dangerfile.reek
-      end
+      let(:dangerfile) { testing_dangerfile }
+      let(:reek)       { dangerfile.reek }
 
-      # Some examples for writing tests
-      # You should replace these with your own.
+      describe '#lint' do
+        subject { reek.lint }
 
-      it 'Warns on a monday' do
-        monday_date = Date.parse('2016-07-11')
-        allow(Date).to receive(:today).and_return monday_date
+        before { changed_files }
+        before { code_smells }
+        before { subject }
 
-        @my_plugin.warn_on_mondays
+        let(:changed_files) do
+          git = reek.git
+          expect(git).to receive(:modified_files).and_return(modified_files)
+          expect(git).to receive(:added_files).and_return(added_files)
+        end
 
-        expect(@dangerfile.status_report[:warnings]).to eq(['Trying to merge code on a Monday'])
-      end
+        let(:modified_files) { [Pathname('spec/fixtures/modified_file.rb')] }
+        let(:added_files)    { [Pathname('spec/fixtures/added_file.rb')] }
 
-      it 'Does nothing on a tuesday' do
-        monday_date = Date.parse('2016-07-12')
-        allow(Date).to receive(:today).and_return monday_date
+        let(:code_smells) do
+          linter = ::Reek::Examiner
+          args   = { message:     double('Message'),
+                     source:      double('Source'),
+                     lines:       [double('Line')] }
+          smells = [double('Code Smells', args)]
+          allow_any_instance_of(linter).to receive(:smells)
+            .and_return(smells)
+        end
 
-        @my_plugin.warn_on_mondays
-
-        expect(@dangerfile.status_report[:warnings]).to eq([])
+        it 'returns warning messages' do
+          expect(dangerfile.status_report[:warnings]).not_to be_empty
+        end
       end
     end
   end
