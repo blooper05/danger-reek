@@ -15,8 +15,20 @@ A description of danger-reek.
 
 ## Usage
 
-    Methods and attributes from this plugin are available in
-    your `Dangerfile` under the `reek` namespace.
+### reek
+
+Lints Ruby files via [Reek](https://rubygems.org/gems/reek).
+Results are sent as inline comments.
+
+<blockquote>Running Reek
+  <pre>
+# Runs Reek on modified and added files in the PR
+reek.lint</pre>
+</blockquote>
+
+#### Methods
+
+`lint` - Runs Ruby files through Reek.
 
 ## Development
 
