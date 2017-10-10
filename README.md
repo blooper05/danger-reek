@@ -7,7 +7,7 @@
 [![Gem Version](https://img.shields.io/gem/v/danger-reek.svg)](https://rubygems.org/gems/danger-reek)
 [![License](https://img.shields.io/github/license/blooper05/danger-reek.svg)](https://github.com/blooper05/danger-reek/blob/master/LICENSE)
 
-A description of danger-reek.
+A [danger](https://rubygems.org/gems/danger) plugin for [Reek](https://rubygems.org/gems/reek).
 
 ## Installation
 
