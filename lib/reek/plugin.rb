@@ -1,27 +1,19 @@
 require 'reek'
 
 module Danger
-  # This is your plugin class. Any attributes or methods you expose here will
-  # be available from within your Dangerfile.
+  # Lints Ruby files via [Reek](https://rubygems.org/gems/reek).
+  # Results are sent as inline comments.
   #
-  # To be published on the Danger plugins site, you will need to have
-  # the public interface documented. Danger uses [YARD](http://yardoc.org/)
-  # for generating documentation from your plugin source, and you can verify
-  # by running `danger plugins lint` or `bundle exec rake spec`.
+  # @example Running Reek
   #
-  # You should replace these comments with a public description of your library.
-  #
-  # @example Ensure people are well warned about merging on Mondays
-  #
-  #          my_plugin.warn_on_mondays
+  #          # Runs Reek on modified and added files in the PR
+  #          reek.lint
   #
   # @see  blooper05/danger-reek
-  # @tags monday, weekends, time, rattata
-  #
+  # @tags ruby, reek, lint
   class DangerReek < Plugin
-    # A method that you can call from your Dangerfile
-    # @return   [Array<String>]
-    #
+    # Runs Ruby files through Reek.
+    # @return [Array<Reek::SmellWarning, nil>]
     def lint
       files_to_lint = fetch_files_to_lint
       code_smells   = run_linter(files_to_lint)
