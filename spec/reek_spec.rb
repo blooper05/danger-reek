@@ -22,7 +22,8 @@ module Danger
           expect(git).to receive(:added_files).and_return(added_files)
         end
 
-        let(:warning_reports) { dangerfile.status_report[:warnings] }
+        let(:status_reports)    { dangerfile.status_report[:warnings] }
+        let(:violation_reports) { dangerfile.violation_report[:warnings] }
 
         context 'with changed files' do
           let(:modified_files) { [Pathname('spec/fixtures/modified_file.rb')] }
@@ -45,7 +46,10 @@ module Danger
             let(:lines)         { [123] }
 
             it 'returns warning reports' do
-              expect(warning_reports).not_to be_empty
+              message   = 'Smell message'
+              violation = Violation.new(message, false, 'path/to/file', 123)
+              expect(status_reports).to eq([message] * 2)
+              expect(violation_reports).to eq([violation] * 2)
             end
           end
 
@@ -53,7 +57,8 @@ module Danger
             let(:stubbings) { changed_files }
 
             it 'returns no warning reports' do
-              expect(warning_reports).to be_empty
+              expect(status_reports).to be_empty
+              expect(violation_reports).to be_empty
             end
           end
         end
@@ -64,7 +69,8 @@ module Danger
           let(:added_files)    { [] }
 
           it 'returns no warning reports' do
-            expect(warning_reports).to be_empty
+            expect(status_reports).to be_empty
+            expect(violation_reports).to be_empty
           end
         end
       end
