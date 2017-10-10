@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Reek::VERSION
   spec.authors       = ['blooper05']
   spec.email         = ['legend.of.blooper@gmail.com']
-  spec.description   = 'A short description of danger-reek.'
-  spec.summary       = 'A longer description of danger-reek.'
+  spec.description   = 'A Danger plugin to lint Ruby files through Reek.'
+  spec.summary       = 'A Danger plugin to lint Ruby files through Reek.'
   spec.homepage      = 'https://github.com/blooper05/danger-reek'
   spec.license       = 'MIT'
 
