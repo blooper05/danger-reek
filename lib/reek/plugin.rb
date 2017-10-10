@@ -44,8 +44,10 @@ module Danger
 
     def warn_each_line(code_smells)
       code_smells.each do |smell|
+        message = smell.message.capitalize
+        source  = smell.source
         smell.lines.each do |line|
-          warn(smell.message, file: smell.source, line: line)
+          warn(message, file: source, line: line)
         end
       end
     end
