@@ -26,8 +26,8 @@ module Danger
         let(:violation_reports) { dangerfile.violation_report[:warnings] }
 
         context 'with changed files' do
-          let(:modified_files) { [Pathname('spec/fixtures/modified_file.rb')] }
-          let(:added_files)    { [Pathname('spec/fixtures/added_file.rb')] }
+          let(:modified_files) { %w(spec/fixtures/modified_file.rb) }
+          let(:added_files)    { %w(spec/fixtures/added_file.rb) }
 
           context 'with code smells' do
             let(:stubbings) { changed_files && code_smells }

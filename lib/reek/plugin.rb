@@ -1,4 +1,6 @@
 require 'reek'
+require 'reek/cli/options'
+require 'reek/source/source_locator'
 
 module Danger
   # Lints Ruby files via [Reek](https://rubygems.org/gems/reek).
@@ -31,7 +33,7 @@ module Danger
 
     def fetch_files_to_lint
       files = git.modified_files + git.added_files
-      Array(files.map { |file| Pathname(file) })
+      ::Reek::Source::SourceLocator.new(files).sources
     end
 
     def warn_each_line(code_smells)
