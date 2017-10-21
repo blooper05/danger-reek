@@ -2,9 +2,6 @@
 
 # If you don't like these settings, just delete this file :)
 
-AllCops:
-  TargetRubyVersion: 2.0
-
 # kind_of? is a good way to check a type
 Style/ClassCheck:
   EnforcedStyle: kind_of?
