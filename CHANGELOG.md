@@ -1,5 +1,23 @@
 # Change Log
 
+## [v0.1.2](https://github.com/blooper05/danger-reek/tree/v0.1.2) (2017-10-31)
+[Full Changelog](https://github.com/blooper05/danger-reek/compare/v0.1.1...v0.1.2)
+
+**Implemented enhancements:**
+
+- Add support for older reek versions [\#6](https://github.com/blooper05/danger-reek/issues/6)
+- Add support for reading config files [\#5](https://github.com/blooper05/danger-reek/issues/5)
+
+**Fixed bugs:**
+
+- CI is failing due to Rubocop settings [\#3](https://github.com/blooper05/danger-reek/issues/3)
+
+**Merged pull requests:**
+
+- :+1: Add support for reading config files [\#8](https://github.com/blooper05/danger-reek/pull/8) ([blooper05](https://github.com/blooper05))
+- :+1: Support older reek versions [\#7](https://github.com/blooper05/danger-reek/pull/7) ([blooper05](https://github.com/blooper05))
+- :bug: Fix TargetRubyVersion setting of .rubocop.yml [\#4](https://github.com/blooper05/danger-reek/pull/4) ([blooper05](https://github.com/blooper05))
+
 ## [v0.1.1](https://github.com/blooper05/danger-reek/tree/v0.1.1) (2017-10-16)
 [Full Changelog](https://github.com/blooper05/danger-reek/compare/v0.1.0...v0.1.1)
 
