@@ -8,9 +8,11 @@ cache:
     - bundle
 
 rvm:
-  - 2.2.8
-  - 2.3.5
-  - 2.4.2
+  - 2.2.9
+  - 2.3.6
+  - 2.4.3
+  - 2.5.0
+  - ruby-head
 
 before_install:
   - gem update bundler
@@ -25,3 +27,8 @@ script:
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+  fast_finish: true
