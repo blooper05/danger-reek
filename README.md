@@ -1,11 +1,11 @@
 # danger-reek
 
-[![Build Status](https://img.shields.io/travis/blooper05/danger-reek.svg?longCache=true&style=flat)](https://travis-ci.org/blooper05/danger-reek)
-[![Dependency Status](https://img.shields.io/gemnasium/blooper05/danger-reek.svg?longCache=true&style=flat)](https://gemnasium.com/blooper05/danger-reek)
-[![Code Climate](https://img.shields.io/codeclimate/maintainability/blooper05/danger-reek.svg?longCache=true&style=flat)](https://codeclimate.com/github/blooper05/danger-reek)
-[![Coverage](https://img.shields.io/codeclimate/c/blooper05/danger-reek.svg?longCache=true&style=flat)](https://codeclimate.com/github/blooper05/danger-reek)
-[![Gem Version](https://img.shields.io/gem/v/danger-reek.svg?longCache=true&style=flat)](https://rubygems.org/gems/danger-reek)
-[![License](https://img.shields.io/github/license/blooper05/danger-reek.svg?longCache=true&style=flat)](https://github.com/blooper05/danger-reek/blob/master/LICENSE)
+[![Build Status](https://badgen.net/travis/blooper05/danger-reek?icon=travis)](https://travis-ci.com/blooper05/danger-reek)
+[![Dependency Status](https://api.dependabot.com/badges/status?host=github&repo=blooper05/danger-reek)](https://dependabot.com)
+[![Maintainability](https://badgen.net/codeclimate/maintainability/blooper05/danger-reek?icon=codeclimate)](https://codeclimate.com/github/blooper05/danger-reek)
+[![Coverage](https://badgen.net/codeclimate/coverage/blooper05/danger-reek?icon=codeclimate)](https://codeclimate.com/github/blooper05/danger-reek)
+[![Version](https://badgen.net/rubygems/v/danger-reek?icon=ruby)](https://rubygems.org/gems/danger-reek)
+[![License](https://badgen.net/github/license/blooper05/danger-reek?icon=github)](https://github.com/blooper05/danger-reek/blob/master/LICENSE)
 
 A [Danger](https://rubygems.org/gems/danger) plugin for [Reek](https://rubygems.org/gems/reek).
 
