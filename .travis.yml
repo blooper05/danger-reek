@@ -10,7 +10,7 @@ cache:
 rvm:
   - 2.3.8
   - 2.4.5
-  - 2.5.1
+  - 2.5.3
   - ruby-head
 
 before_install:
