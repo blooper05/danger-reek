@@ -25,7 +25,7 @@ module Danger
     private
 
     def run_linter(files_to_lint)
-      configuration = ::Reek::Configuration::AppConfiguration.from_path
+      configuration = ::Reek::Configuration::AppConfiguration.from_path(nil)
       files_to_lint.flat_map do |file|
         examiner = ::Reek::Examiner.new(file, configuration: configuration)
         examiner.smells
