@@ -47,4 +47,7 @@ Gem::Specification.new do |spec|
   #
   # This will stop test execution and let you inspect the results
   spec.add_development_dependency 'pry'
+
+  # Release support
+  spec.add_development_dependency 'github_changelog_generator'
 end
