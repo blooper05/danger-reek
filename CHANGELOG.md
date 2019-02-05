@@ -1,7 +1,16 @@
 # Change Log
 
-## [0.2.0](https://github.com/blooper05/danger-reek/tree/0.2.0) (2018-11-18)
-[Full Changelog](https://github.com/blooper05/danger-reek/compare/v0.1.2...0.2.0)
+## [v0.2.1](https://github.com/blooper05/danger-reek/tree/v0.2.1) (2019-02-05)
+[Full Changelog](https://github.com/blooper05/danger-reek/compare/v0.2.0...v0.2.1)
+
+**Merged pull requests:**
+
+- 💚 Manage the settings of Dependabot as a file [\#25](https://github.com/blooper05/danger-reek/pull/25) ([blooper05](https://github.com/blooper05))
+- 💚 CI against latest Ruby versions [\#24](https://github.com/blooper05/danger-reek/pull/24) ([blooper05](https://github.com/blooper05))
+- ⬆️ Update bundler requirement to \>= 1.3, \< 3 [\#23](https://github.com/blooper05/danger-reek/pull/23) ([blooper05](https://github.com/blooper05))
+
+## [v0.2.0](https://github.com/blooper05/danger-reek/tree/v0.2.0) (2018-11-18)
+[Full Changelog](https://github.com/blooper05/danger-reek/compare/v0.1.2...v0.2.0)
 
 **Fixed bugs:**
 
