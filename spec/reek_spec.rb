@@ -27,12 +27,24 @@ module Danger
         let(:status_reports)    { dangerfile.status_report[:warnings] }
         let(:violation_reports) { dangerfile.violation_report[:warnings] }
 
+        let(:source_locator) do
+          pathnames = (modified_files + added_files).map { |file| Pathname.new(file) }
+          locator_double = double(::Reek::Source::SourceLocator, sources: pathnames)
+
+          allow(::Reek::Source::SourceLocator).to receive(:new)
+            .with(an_instance_of(Array),
+                  configuration: an_instance_of(::Reek::Configuration::AppConfiguration))
+            .and_return(locator_double)
+
+          expect(locator_double).to receive(:sources)
+        end
+
         context 'with changed files' do
           let(:modified_files) { %w(spec/fixtures/modified_file.rb) }
           let(:added_files)    { %w(spec/fixtures/added_file.rb) }
 
           context 'with code smells' do
-            let(:stubbings) { changed_files && code_smells }
+            let(:stubbings) { source_locator && changed_files && code_smells }
 
             let(:code_smells) do
               linter = ::Reek::Examiner
@@ -56,7 +68,7 @@ module Danger
           end
 
           context 'with no code smells' do
-            let(:stubbings) { changed_files }
+            let(:stubbings) { source_locator && changed_files }
 
             it 'returns no warning reports' do
               expect(status_reports).to be_empty
@@ -66,7 +78,7 @@ module Danger
         end
 
         context 'with no changed files' do
-          let(:stubbings)      { changed_files }
+          let(:stubbings)      { source_locator && changed_files }
           let(:modified_files) { [] }
           let(:added_files)    { [] }
 

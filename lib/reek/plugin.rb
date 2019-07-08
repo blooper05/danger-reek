@@ -19,24 +19,24 @@ module Danger
     # Runs Ruby files through Reek.
     # @return [Array<Reek::SmellWarning, nil>]
     def lint
-      files_to_lint = fetch_files_to_lint
-      code_smells   = run_linter(files_to_lint)
+      configuration = ::Reek::Configuration::AppConfiguration.from_path(nil)
+      files_to_lint = fetch_files_to_lint(configuration)
+      code_smells   = run_linter(files_to_lint, configuration)
       warn_each_line(code_smells)
     end
 
     private
 
-    def run_linter(files_to_lint)
-      configuration = ::Reek::Configuration::AppConfiguration.from_path(nil)
+    def run_linter(files_to_lint, configuration)
       files_to_lint.flat_map do |file|
         examiner = ::Reek::Examiner.new(file, configuration: configuration)
         examiner.smells
       end
     end
 
-    def fetch_files_to_lint
+    def fetch_files_to_lint(configuration)
       files = git.modified_files + git.added_files
-      ::Reek::Source::SourceLocator.new(files).sources
+      ::Reek::Source::SourceLocator.new(files, configuration: configuration).sources
     end
 
     def warn_each_line(code_smells)
