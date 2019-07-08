@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'reek'
 require 'reek/cli/options'
 require 'reek/source/source_locator'
