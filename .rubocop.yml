@@ -16,10 +16,10 @@ Lint/UselessAssignment:
     - '**/spec/**/*'
 
 # We could potentially enable the 2 below:
-Layout/IndentHash:
+Layout/FirstHashElementIndentation:
   Enabled: false
 
-Layout/AlignHash:
+Layout/HashAlignment:
   Enabled: false
 
 # HoundCI doesn't like this rule
@@ -123,7 +123,7 @@ Style/MixinGrouping:
 Naming/FileName:
   Enabled: false
 
-Layout/IndentHeredoc:
+Layout/HeredocIndentation:
   Enabled: false
 
 Style/SpecialGlobalVars:
