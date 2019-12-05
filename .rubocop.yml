@@ -16,7 +16,7 @@ Lint/UselessAssignment:
     - '**/spec/**/*'
 
 # We could potentially enable the 2 below:
-Layout/IndentHash:
+Layout/FirstHashElementIndentation:
   Enabled: false
 
 Layout/HashAlignment:
