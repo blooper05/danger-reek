@@ -1,7 +1,7 @@
 # danger-reek
 
 [![Build Status](https://badgen.net/travis/blooper05/danger-reek?icon=travis)](https://travis-ci.com/blooper05/danger-reek)
-[![Dependency Status](https://api.dependabot.com/badges/status?host=github&repo=blooper05/danger-reek)](https://dependabot.com)
+[![Dependency Status](https://badgen.net/dependabot/blooper05/danger-reek?icon=dependabot)](https://dependabot.com)
 [![Maintainability](https://badgen.net/codeclimate/maintainability/blooper05/danger-reek?icon=codeclimate)](https://codeclimate.com/github/blooper05/danger-reek)
 [![Coverage](https://badgen.net/codeclimate/coverage/blooper05/danger-reek?icon=codeclimate)](https://codeclimate.com/github/blooper05/danger-reek)
 [![Version](https://badgen.net/rubygems/v/danger-reek?icon=ruby)](https://rubygems.org/gems/danger-reek)
