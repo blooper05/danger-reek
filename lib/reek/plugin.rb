@@ -17,6 +17,7 @@ module Danger
   # @tags ruby, reek, lint
   class DangerReek < Plugin
     # Runs Ruby files through Reek.
+    # @param   [Hash] config
     # @return [Array<Reek::SmellWarning, nil>]
     def lint(config = {})
       @force_exclusion = config[:force_exclusion] || false
@@ -28,13 +29,11 @@ module Danger
 
     private
 
-    attr_reader :configuration, :force_exclusion
-
     def run_linter(files_to_lint)
       files_to_lint.flat_map do |file|
         next if ignore_file?(file)
 
-        examiner = ::Reek::Examiner.new(file, configuration: configuration)
+        examiner = ::Reek::Examiner.new(file, configuration: @configuration)
         examiner.smells
       end.compact
     end
@@ -55,12 +54,12 @@ module Danger
     end
 
     def ignore_file?(file)
-      if force_exclusion
+      if @force_exclusion
         file.ascend.any? do |ascendant|
-          configuration.path_excluded?(ascendant)
+          @configuration.path_excluded?(ascendant)
         end
       else
-        configuration.path_excluded?(file)
+        @configuration.path_excluded?(file)
       end
     end
   end
