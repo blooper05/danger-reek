@@ -28,7 +28,13 @@ reek.lint</pre>
 
 #### Methods
 
-`lint` - Runs Ruby files through Reek.
+`lint(config: Hash)` - Runs Ruby files through Reek.
+
+This method accepts a configuration hash.
+The following keys are supported:
+
+* `force_exclusion`: pass `true` to pass `--force-exclusion` argument to Reek.
+  (this option will instruct reek to ignore the files that your reek config ignores)
 
 ## Development
 
