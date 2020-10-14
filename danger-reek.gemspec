@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = Gem::Requirement.new('>= 2.4.0')
 
   spec.add_runtime_dependency 'danger-plugin-api', '~> 1.0'
-  spec.add_runtime_dependency 'reek', '>= 3.6', '< 6.0'
+  spec.add_runtime_dependency 'reek', '>= 3.6', '< 7.0'
 
   # General ruby development
   spec.add_development_dependency 'bundler', '>= 1.3', '< 3'
