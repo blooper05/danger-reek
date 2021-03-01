@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov', '~> 0.13'
 
   # Linting code and docs
-  spec.add_development_dependency 'rubocop', '~> 0.77'
+  spec.add_development_dependency 'rubocop', '~> 1.11'
   spec.add_development_dependency 'yard'
 
   # Makes testing easy via `bundle exec guard`
