@@ -55,6 +55,26 @@ module Danger
             end
           end
 
+          context 'when changed files are in exclude_paths in reek configuration' do
+            let(:stubbings) { changed_files && configuration }
+
+            let(:configuration) do
+              allow(::Reek::Configuration::AppConfiguration)
+                .to receive(:from_path)
+                .and_return(
+                  ::Reek::Configuration::AppConfiguration.new(
+                    values: { 'exclude_paths' => [*modified_files, *added_files] }
+                  )
+                )
+
+              allow(::Reek::Examiner).to receive(:new).and_call_original
+            end
+
+            it 'does not examine files' do
+              expect(::Reek::Examiner).not_to have_received(:new).with(any_args)
+            end
+          end
+
           context 'with no code smells' do
             let(:stubbings) { changed_files }
 
