@@ -27,7 +27,6 @@ module Danger
     private
 
     def run_linter(files_to_lint)
-      configuration = ::Reek::Configuration::AppConfiguration.from_path(nil)
       files_to_lint.flat_map do |file|
         examiner = ::Reek::Examiner.new(file, configuration: configuration)
         examiner.smells
@@ -36,7 +35,7 @@ module Danger
 
     def fetch_files_to_lint
       files = git.modified_files + git.added_files
-      ::Reek::Source::SourceLocator.new(files).sources
+      ::Reek::Source::SourceLocator.new(files, configuration: configuration).sources
     end
 
     def warn_each_line(code_smells)
@@ -47,6 +46,10 @@ module Danger
           warn(message, file: source, line: line)
         end
       end
+    end
+
+    def configuration
+      @configuration ||= ::Reek::Configuration::AppConfiguration.from_path(nil)
     end
   end
 end
